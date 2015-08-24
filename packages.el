@@ -33,6 +33,7 @@
     elisp-slime-nav
     yagist
     debbugs
+    evil-quickscope
     )
   "List of all packages to install and/or initialize. Built-in packages
 which require an initialization must be listed explicitly in the list.")
@@ -48,6 +49,9 @@ which require an initialization must be listed explicitly in the list.")
                                    (kbd "m m C") 'macrostep-collapse-all
                                    ))
   )
+
+(defun personal-misc/init-evil-quickscope ()
+  (use-package evil-quickscope))
 
 (defun personal-misc/init-yagist ()
   (use-package yagist))
