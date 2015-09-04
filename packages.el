@@ -79,7 +79,7 @@ which require an initialization must be listed explicitly in the list.")
   )
 
 (defun personal-misc/init-rainbow-mode ()
-  (use-package rainbow-mode :config (add-hook css-mode-hook #'rainbow-mode))
+  (use-package rainbow-mode :config (add-hook 'css-mode-hook #'rainbow-mode))
   )
 
 (defun personal-misc/init-prodigy ()
