@@ -34,6 +34,14 @@
     yagist
     debbugs
     evil-quickscope
+    multi-term
+    helm-mt
+    evil-visual-mark-mode
+    magit-annex
+    column-enforce-mode
+    paredit
+    paredit-menu
+    evil-paredit
     )
   "List of all packages to install and/or initialize. Built-in packages
 which require an initialization must be listed explicitly in the list.")
@@ -49,6 +57,27 @@ which require an initialization must be listed explicitly in the list.")
                                    (kbd "m m C") 'macrostep-collapse-all
                                    ))
   )
+
+(defun personal-misc/init-helm-mt ()
+  (use-package helm-mt :init (progn
+                                 (evil-global-set-key 'normal (kbd "SPC a s t") 'helm-mt))))
+
+(defun personal-misc/init-multi-term ()
+  (use-package multi-term))
+
+(defun personal-misc/init-paredit ()
+  (use-package paredit))
+
+(defun personal-misc/init-paredit-menu ()
+  (use-package paredit-menu))
+
+(defun personal-misc/init-evil-paredit ()
+  (use-package evil-paredit))
+
+(defun personal-misc/init-evil-visual-mark-mode ()
+  (use-package evil-visual-mark-mode
+    :defer t
+    :init (progn (evil-global-set-key 'normal (kbd "SPC T v") 'evil-visual-mark-mode))))
 
 (defun personal-misc/init-evil-quickscope ()
   (use-package evil-quickscope))
@@ -138,6 +167,11 @@ which require an initialization must be listed explicitly in the list.")
         :kill-signal 'sigkill
         :kill-process-buffer-on-stop t)))
     )
+
+(defun personal-misc/init-column-enforce-mode ()
+    (use-package column-enforce-mode
+      :defer t
+      :init (add-hook 'prog-mode-hook 'column-enforce-mode)))
 
   ;; For each package, define a function personal-misc/init-<package-personal-misc>
 ;;
